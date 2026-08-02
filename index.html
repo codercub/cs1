@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3CS Style Site Clone</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- Google Fonts for CMU-like clean typography -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+        }
+        /* CMU Tartan Crimson Accent Color */
+        .bg-cmu {
+            background-color: #C41230 !important;
+        }
+        .text-cmu {
+            color: #C41230 !important;
+        }
+        /* Hero Banner Styling */
+        .hero-section {
+            background: linear-gradient(135deg, #111111 0%, #C41230 100%);
+            color: white;
+            padding: 60px 0;
+        }
+        /* Card & Content UI Grid blocks matching the 3CS layout */
+        .feature-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+        }
+        .timeline-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="text-white">CMU</span> <span class="text-muted">|</span> CS Academy Style
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="#overview">Overview</a>
+                <a class="nav-link" href="#timeline">Timeline</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="hero-section text-center text-md-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <span class="badge bg-light text-dark mb-2">Now Enrolling</span>
+                    <h1 class="display-4 fw-bold">College Computer Science</h1>
+                    <p class="lead">A rigorous, static reproduction of clean educational landing pages built instantly on .</p>
+                    <a href="#overview" class="btn btn-light btn-lg fw-bold text-cmu me-2">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid Section -->
+    <main class="container my-5" id="overview">
+        <div class="row g-4">
+            <!-- Left Info Block -->
+            <div class="col-md-4">
+                <div class="card feature-card p-4 h-100">
+                    <h3 class="h5 fw-bold text-cmu">Program Details</h3>
+                    <hr>
+                    <ul class="list-unstyled lh-lg">
+                        <li><strong>Duration:</strong> 30 Weeks</li>
+                        <li><strong>Format:</strong> Virtual</li>
+                        <li><strong>Credits:</strong> 12 University Units</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right Content Block -->
+            <div class="col-md-8">
+                <div class="card feature-card p-4 h-100">
+                    <h3 class="h5 fw-bold">Course Description</h3>
+                    <p class="text-muted">This page layouts mirrors the 3CS framework using standard structural patterns. It features responsive text columns, simple visual hierarchy, and precise spacing rules.</p>
+                    
+                    <!-- Nested Timeline Section -->
+                    <div class="mt-4" id="timeline">
+                        <h4 class="h6 fw-bold text-secondary text-uppercase mb-3">Timeline Matrix</h4>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="timeline-badge me-3">Phase 1</span>
+                            <div><strong>Readiness Review</strong> (6 Weeks)</div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <span class="timeline-badge me-3">Phase 2</span>
+                            <div><strong>Continued Learning</strong> (24 Weeks)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 text-center mt-5">
+        <div class="container">
+            <p class="small text-muted mb-0">Built using Bootstrap 5 & Hosted on GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS CDN -->
+    <script src="https://jsdelivr.net"></script>
+</body>
+</html>
