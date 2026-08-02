@@ -149,7 +149,9 @@
   .hero p.sub{
     font-size:18px; color:var(--text-dim); max-width:520px; margin-bottom:32px;
   }
-  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
+  .hero-doclink{ font-family:var(--mono); font-size:12.5px; color:var(--text-faint); text-decoration:underline; text-underline-offset:3px; display:inline-block; margin-bottom:44px; }
+  .hero-doclink:hover{ color:var(--text-dim); }
   .btn-primary{
     font-family:var(--mono); font-weight:700; font-size:14px;
     background:var(--amber); color:#0a0e13;
@@ -173,6 +175,7 @@
     color:var(--text);
   }
   .stat span{ font-size:13px; color:var(--text-faint); }
+  .stat .stat-note{ display:block; font-size:11.5px; color:var(--text-faint); margin-top:3px; font-family:var(--mono); }
 
   /* terminal card */
   .term{
@@ -478,13 +481,14 @@
         <p class="sub">CS1 бол дунд сургуулиа төгсөхөөс өмнө CMU-ийн 4 албан ёсны кредит, дэлхийн хаана ч хүчинтэй transcript авах замын эхний, заавал дүүргэх шат.</p>
         <div class="hero-ctas">
           <a class="btn-primary" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener">Суудлаа баталгаажуулах →</a>
-          <a class="btn-ghost" href="#pipeline">Хэрхэн ажилладгийг үзэх ↓</a>
+          <a class="btn-ghost" href="#pipeline">Урт хугацаанд суралцах замнал ↓</a>
         </div>
+        <a class="hero-doclink" href="https://docs.google.com/document/d/1XAiWzOdMZTGtnOMhvBwSmlLl0_-AWA6BtJxuslyFHew/" target="_blank" rel="noopener">Дэлгэрэнгүй мэдээлэл унших (Google Docs) →</a>
         <div class="stat-row">
-          <div class="stat"><b>8<span style="color:var(--text-faint)">-р жил</span></b><span>тасралтгүй ажиллаж буй</span></div>
-          <div class="stat"><b>53</b><span>CS1 төгссөн сурагч</span></div>
+          <div class="stat"><b>3<span style="color:var(--text-faint)"> дахь жилдээ</span></b><span>амжилттай хэрэгжиж буй</span></div>
+          <div class="stat"><b>53<span style="color:var(--text-faint)"> сурагч</span></b><span>2025-26 хичээлийн жилд төгссөн</span><span class="stat-note">3 нь 100% онлайн · Өмнөд Солонгос, хөдөө орон нутгаас</span></div>
           <div class="stat"><b>120<span style="color:var(--text-faint)">ц</span></b><span>нийт хичээллэх цаг</span></div>
-          <div class="stat"><b>4<span style="color:var(--text-faint)"> кредит</span></b><span>CMU-ийн албан ёсны</span></div>
+          <div class="stat"><b>5<span style="color:var(--text-faint)"> сурагч</span></b><span>АНУ-д зохиогддог Creative Task Challenge кодинг олимпиадад байр эзэлсэн</span></div>
         </div>
       </div>
 
@@ -512,6 +516,7 @@
       <div class="trust-item"><span class="dot"></span><span><strong>Carnegie Mellon-ийн</strong> цогц хөтөлбөрийг 2022 оноос хэрэгжүүлж буй Монголын цорын ганц академи</span></div>
       <div class="trust-item"><span class="dot"></span><span>CMU-ийн багш <strong>Tim Barnes</strong> 2025 онд Монголд ирж шууд заасан</span></div>
       <div class="trust-item"><span class="dot"></span><span>2025-26 онд анхны сурагч <strong>8-р ангидаа</strong> 4 CMU кредит авсан</span></div>
+      <div class="trust-item"><span class="dot"></span><span>Онлайн загвараар дэлхийн өнцөг булан бүрээс сурагч элсүүлж байна — Өмнөд Солонгос, хөдөө орон нутаг, <strong>АНУ-аас 12 сурагч</strong> хамрагдсан</span></div>
     </div>
   </section>
 
