@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Computer Science | 3CS Style</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- Google Fonts: Inter & JetBrains Mono for a premium tech aesthetic -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #0B0F19; /* Pure dark obsidian slate used by premium tech portals */
+            --bg-card: #161C2A; /* Lighter container tint for crisp floating isolation */
+            --cmu-crimson: #E63956; /* Electric vibrant crimson for active focus indicators */
+            --text-muted: #94A3B8; /* Balanced low-contrast gray for readable subtext */
+            --border-glow: rgba(230, 57, 86, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: #F8FAFC;
+            letter-spacing: -0.01em;
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation Header bar styling */
+        .navbar-custom {
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 18px 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Modernized Hero Block */
+        .hero-wrap {
+            padding: 100px 0 70px 0;
+            background: radial-gradient(circle at 90% 10%, rgba(230, 57, 86, 0.08) 0%, transparent 50%);
+        }
+
+        .pill-badge {
+            background: rgba(230, 57, 86, 0.1);
+            color: var(--cmu-crimson);
+            border: 1px solid rgba(230, 57, 86, 0.2);
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 14px;
+            border-radius: 100px;
+            display: inline-block;
+        }
+
+        /* 3CS Grid Card Containers */
+        .cmu-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 32px;
+            height: 100%;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cmu-card:hover {
+            border-color: rgba(230, 57, 86, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Typography Controls */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #FFFFFF;
+        }
+
+        .text-muted-custom {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* Content list items styling */
+        .spec-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #E2E8F0;
+            list-style: none;
+        }
+
+        .spec-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--cmu-crimson);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+        }
+
+        /* Action Buttons */
+        .btn-action {
+            background-color: var(--cmu-crimson);
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 28px;
+            border-radius: 8px;
+            border: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn-action:hover {
+            opacity: 0.9;
+            color: #FFFFFF;
+        }
+
+        /* Step/Timeline Badge blocks */
+        .matrix-badge {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.05);
+            color: #E2E8F0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Blur Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span>CMU</span> <span style="color: var(--cmu-crimson);">3CS</span> <span class="fw-light text-muted">Academy</span>
+            </a>
+            <div class="navbar-nav ms-auto d-none d-md-flex">
+                <a class="nav-link text-white px-3" href="#curriculum">Curriculum</a>
+                <a class="nav-link text-white-50 px-3" href="#matrix">Timeline</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Refined Hero Entry -->
+    <header class="hero-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="pill-badge mb-3">College Credit Course</div>
+                    <h1 class="display-5 mb-3">Rigorous Computer Science.<br>Tailored for High Schoolers.</h1>
+                    <p class="text-muted-custom fs-5 mb-4" style="max-width: 600px;">
+                        Experience the foundational programming frameworks of Carnegie Mellon from anywhere. This layout establishes the high-fidelity UI blocks required to construct a beautiful, fast landing page.
+                    </p>
+                    <a href="#curriculum" class="btn btn-action">Explore Program Details</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Two Column Main Layout Grid -->
+    <main class="container my-4" id="curriculum">
+        <div class="row g-4">
+            
+            <!-- Side Column Card (Course Metadata) -->
+            <div class="col-lg-4">
+                <div class="cmu-card">
+                    <h3 class="h5 mb-4" style="color: var(--cmu-crimson);">Program Parameters</h3>
+                    <ul class="spec-list p-0">
+                        <li><strong>Standard:</strong> Fully Rigorous Academic Track</li>
+                        <li><strong>Units:</strong> 12 Transcripted CMU Units</li>
+                        <li><strong>Language:</strong> Python Graphics Engine Focus</li>
+                        <li><strong>Pacing:</strong> Deep-Dive Virtual Model</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Wide Main Column Card (Course Explainer) -->
+            <div class="col-lg-8">
+                <div class="cmu-card">
+                    <h3 class="h5 mb-3">Academic Experience</h3>
+                    <p class="text-muted-custom mb-4">
+                        Unlike standard courses, this application-focused blueprint transitions learners safely from simple syntax mastery straight into designing large-scale structural code bases containing thousands of independent, fully working lines.
+                    </p>
+
+                    <!-- Interactive Curriculum Matrix Component -->
+                    <div class="pt-3 border-top border-secondary border-opacity-25" id="matrix">
+                        <h4 class="text-uppercase tracking-wider font-monospace text-muted mb-4" style="font-size: 0.75rem; letter-spacing: 0.1em;">Delivery Matrix Plan</h4>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <span class="matrix-badge me-3 flex-shrink-0">STAGE 01</span>
+                            <div>
+                                <h5 class="fs-6 mb-1 fw-semibold">Structural Foundations</h5>
+                                <p class="text-muted-custom small mb-0">Building logical processing pathways, event arrays, and deep functional programming basics.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start">
+                            <span class="matrix-badge me-3 flex-shrink-0">STAGE 02</span>
+                            <div>
+                                <h5 class="fs-6 mb-1 fw-semibold">Complex System Synthesis</h5>
+                                <p class="text-muted-custom small mb-0">Translating abstract algorithms directly into custom graphical project deployments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Clean Premium Footer -->
+    <footer class="container py-5 text-center mt-5 border-top border-secondary border-opacity-10">
+        <p class="small text-muted-custom mb-0">Static Portfolio Prototype &bull; Rendered dynamically on GitHub Pages.</p>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://jsdelivr.net"></script>
+</body>
+</html>
