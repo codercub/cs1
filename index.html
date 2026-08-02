@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS1 хөтөлбөр — Codercub × Carnegie Mellon University</title>
+<meta name="description" content="Монголын анхны coding academy Codercub-ийн CS1 хөтөлбөр — Carnegie Mellon-ийн CPCS хөтөлбөр рүү орох эхний шат. 12 unit, 120 цаг, 7-12-р ангийн сурагчдад.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #0a0e13;
+    --bg-raised: #10151c;
+    --bg-card: #131a22;
+    --line: #212a35;
+    --text: #e7edf3;
+    --text-dim: #8b98a8;
+    --text-faint: #566274;
+    --amber: #ff9900;
+    --amber-dim: #ff990033;
+    --cmu-red: #c41230;
+    --green: #3ddc84;
+    --radius: 3px;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'Manrope', system-ui, sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:#0a0e13; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:16px; height:1px;
+    background:var(--amber);
+    display:inline-block;
+  }
+  section{ padding:88px 0; border-bottom:1px solid var(--line); }
+  h2{
+    font-size:clamp(28px,4vw,40px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin-bottom:14px;
+  }
+  .lede{ color:var(--text-dim); font-size:17px; max-width:640px; margin-bottom:48px; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,14,19,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+    max-width:1080px; margin:0 auto;
+  }
+  .brand{
+    font-family:var(--mono);
+    font-size:14px;
+    display:flex; align-items:center; gap:8px;
+    text-decoration:none;
+    color:var(--text);
+  }
+  .brand .org{ color:var(--text-faint); }
+  .brand .sep{ color:var(--text-faint); }
+  .brand .repo{ color:var(--amber); font-weight:500; }
+  .navlinks{ display:flex; align-items:center; gap:28px; }
+  .navlinks a{
+    font-size:14px; text-decoration:none; color:var(--text-dim);
+    transition:color .15s;
+  }
+  .navlinks a:hover{ color:var(--text); }
+  .nav-cta{
+    font-family:var(--mono);
+    font-size:13px;
+    background:var(--amber);
+    color:#0a0e13 !important;
+    padding:8px 16px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .navlinks .nav-links-inner{ display:flex; gap:28px; }
+  @media (max-width:720px){
+    .navlinks .nav-links-inner{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:72px 0 88px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 15% 0%, #ff990014, transparent 45%),
+      radial-gradient(circle at 85% 20%, #c4123018, transparent 40%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:56px;
+    align-items:center; position:relative;
+  }
+  @media (max-width:860px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .hero h1{
+    font-size:clamp(34px,5.2vw,54px);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{ color:var(--amber); }
+  .hero p.sub{
+    font-size:18px; color:var(--text-dim); max-width:520px; margin-bottom:32px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
+  .btn-primary{
+    font-family:var(--mono); font-weight:700; font-size:14px;
+    background:var(--amber); color:#0a0e13;
+    padding:14px 22px; border-radius:var(--radius);
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 6px 20px #ff990033; }
+  .btn-ghost{
+    font-family:var(--mono); font-size:14px;
+    border:1px solid var(--line); color:var(--text-dim);
+    padding:14px 22px; border-radius:var(--radius);
+    text-decoration:none;
+    transition:border-color .15s, color .15s;
+  }
+  .btn-ghost:hover{ border-color:var(--text-faint); color:var(--text); }
+
+  .stat-row{ display:flex; gap:36px; flex-wrap:wrap; }
+  .stat b{
+    display:block; font-family:var(--mono); font-size:26px; font-weight:700;
+    color:var(--text);
+  }
+  .stat span{ font-size:13px; color:var(--text-faint); }
+
+  /* terminal card */
+  .term{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -20px #00000080;
+  }
+  .term-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:11px 14px;
+    background:var(--bg-card);
+    border-bottom:1px solid var(--line);
+  }
+  .term-dot{ width:10px; height:10px; border-radius:50%; }
+  .term-dot.r{ background:#ff5f57; } .term-dot.y{ background:#febc2e; } .term-dot.g{ background:#28c840; }
+  .term-title{ margin-left:8px; font-family:var(--mono); font-size:12px; color:var(--text-faint); }
+  .term-body{ padding:22px 18px; font-family:var(--mono); font-size:13.5px; line-height:1.85; }
+  .term-body .p{ color:var(--text-faint); }
+  .term-body .out{ color:var(--text-dim); }
+  .term-body .ok{ color:var(--green); }
+  .term-body .k{ color:var(--amber); }
+  .cursor{
+    display:inline-block; width:7px; height:14px; background:var(--amber);
+    vertical-align:middle; margin-left:2px;
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{ padding:36px 0; border-bottom:1px solid var(--line); }
+  .trust-inner{
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .trust-item{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:13.5px; color:var(--text-dim);
+  }
+  .trust-item .dot{ width:6px; height:6px; border-radius:50%; background:var(--amber); flex:none; margin-top:6px; }
+  .trust-item strong{ color:var(--text); font-weight:600; }
+
+  /* ---------- PROOF PHOTO ---------- */
+  .proof{ padding:0 0 88px; border-bottom:1px solid var(--line); }
+  .proof-frame{
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--bg-raised);
+    box-shadow:0 30px 60px -30px #00000090;
+  }
+  .proof-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:11px 16px;
+    background:var(--bg-card);
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:12px; color:var(--text-faint);
+  }
+  .proof-bar .file{ display:flex; align-items:center; gap:8px; }
+  .proof-bar .file::before{ content:'📷'; font-size:12px; filter:grayscale(1); opacity:.7; }
+  .proof-bar .tag{ color:var(--amber); }
+  .proof-img-wrap{ position:relative; line-height:0; }
+  .proof-img-wrap img{ width:100%; height:auto; display:block; }
+  .proof-caption{
+    padding:18px 20px;
+    display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+    border-top:1px solid var(--line);
+  }
+  .proof-caption p{ font-size:14px; color:var(--text-dim); max-width:560px; }
+  .proof-caption .count{
+    font-family:var(--mono); font-size:13px; color:var(--green); white-space:nowrap;
+  }
+
+  /* ---------- PIPELINE ---------- */
+  .pipeline{ position:relative; }
+  .pipe-track{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    position:relative;
+    margin-top:8px;
+  }
+  @media (max-width:820px){ .pipe-track{ grid-template-columns:1fr; } }
+
+  .pipe-line{
+    position:absolute; top:26px; left:calc(16.66% + 4px); right:calc(16.66% + 4px);
+    height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);
+    z-index:0;
+  }
+  @media (max-width:820px){ .pipe-line{ display:none; } }
+
+  .stage{
+    position:relative; z-index:1;
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:26px 22px;
+    margin:0 -1px -1px 0;
+  }
+  @media (max-width:820px){ .stage{ margin:-1px 0 0 0; } }
+
+  .stage-head{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+  .stage-num{
+    font-family:var(--mono); font-size:12px; font-weight:700;
+    width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--bg); border:1px solid var(--line); color:var(--text-faint);
+    flex:none;
+  }
+  .stage.active .stage-num{ background:var(--amber); color:#0a0e13; border-color:var(--amber); }
+  .stage-status{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 8px; border-radius:20px;
+  }
+  .stage-status.open{ background:#3ddc8422; color:var(--green); }
+  .stage-status.locked{ background:#8b98a822; color:var(--text-faint); }
+  .stage-status.gold{ background:#ff990022; color:var(--amber); }
+
+  .stage h3{ font-size:19px; font-weight:700; margin-bottom:8px; }
+  .stage p{ font-size:14px; color:var(--text-dim); margin-bottom:14px; }
+  .stage .meta{
+    display:flex; gap:14px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12px; color:var(--text-faint);
+    border-top:1px dashed var(--line); padding-top:12px;
+  }
+  .stage .meta b{ color:var(--text); }
+
+  /* ---------- CURRICULUM ---------- */
+  .curr-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  @media (max-width:820px){ .curr-grid{ grid-template-columns:1fr; } }
+  .fact-list{ list-style:none; }
+  .fact-list li{
+    display:flex; gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .fact-list li:first-child{ padding-top:0; }
+  .fact-list b{
+    font-family:var(--mono); color:var(--amber); font-size:14px; flex:none; width:64px;
+  }
+  .fact-list span{ color:var(--text-dim); font-size:14.5px; }
+  .curr-media{
+    border:1px solid var(--line); border-radius:6px; overflow:hidden;
+    background:var(--bg-card);
+  }
+  .curr-media img{ width:100%; height:auto; display:block; }
+  .curr-media .cap{
+    font-family:var(--mono); font-size:11.5px; color:var(--text-faint);
+    padding:10px 14px; border-top:1px solid var(--line);
+  }
+
+  .req-box{
+    margin-top:28px; padding:18px 20px;
+    background:var(--bg-card); border:1px solid var(--line); border-left:2px solid var(--amber);
+    border-radius:4px;
+  }
+  .req-box .eyebrow{ margin-bottom:8px; }
+  .req-box p{ font-size:14px; color:var(--text-dim); }
+
+  /* ---------- SCHEDULE ---------- */
+  .sched-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:56px; }
+  @media (max-width:720px){ .sched-grid{ grid-template-columns:1fr; } }
+  .sched-card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  .sched-head{
+    padding:14px 18px; border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:12px; color:var(--text-faint);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .sched-body{ padding:20px 18px; }
+  .sched-row{ display:flex; justify-content:space-between; gap:12px; padding:9px 0; font-size:14px; }
+  .sched-row .d{ color:var(--text-dim); }
+  .sched-row .t{ font-family:var(--mono); color:var(--text); font-size:13px; text-align:right; }
+
+  .timeline{ position:relative; padding-left:26px; }
+  .timeline::before{
+    content:''; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--line);
+  }
+  .tl-item{ position:relative; padding-bottom:26px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:''; position:absolute; left:-26px; top:4px; width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--amber);
+  }
+  .tl-date{ font-family:var(--mono); font-size:12px; color:var(--amber); margin-bottom:4px; }
+  .tl-title{ font-weight:700; font-size:15px; margin-bottom:3px; }
+  .tl-desc{ font-size:13.5px; color:var(--text-dim); }
+
+  /* ---------- PRICING ---------- */
+  .price-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:820px){ .price-grid{ grid-template-columns:1fr; } }
+  .price-card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:6px;
+    padding:24px 22px; display:flex; flex-direction:column; gap:14px;
+  }
+  .price-card.highlight{ border-color:var(--amber); position:relative; }
+  .price-card.highlight::before{
+    content:'ХАМГИЙН АШИГТАЙ';
+    position:absolute; top:-11px; left:20px;
+    background:var(--amber); color:#0a0e13;
+    font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.05em;
+    padding:3px 9px; border-radius:20px;
+  }
+  .price-tag{ font-family:var(--mono); font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.08em; }
+  .price-name{ font-size:17px; font-weight:700; }
+  .price-amount{ font-family:var(--mono); font-size:24px; font-weight:700; color:var(--text); }
+  .price-amount .strike{ font-size:13px; color:var(--text-faint); text-decoration:line-through; font-weight:400; display:block; margin-bottom:2px; }
+  .price-desc{ font-size:13.5px; color:var(--text-dim); flex:1; }
+  .price-base{
+    margin-bottom:24px; padding:16px 20px;
+    border:1px dashed var(--line); border-radius:6px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+  }
+  .price-base .label{ font-size:13.5px; color:var(--text-dim); }
+  .price-base .amt{ font-family:var(--mono); font-size:20px; font-weight:700; }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    text-align:center;
+    background:radial-gradient(circle at 50% 0%, #ff990014, transparent 60%);
+  }
+  .cta h2{ margin-bottom:16px; }
+  .cta .lede{ margin-left:auto; margin-right:auto; }
+  .cta-form-hint{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-faint);
+    margin-top:18px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:40px 0; }
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-brand{ display:flex; align-items:center; gap:12px; }
+  .footer-brand img{ height:24px; width:auto; display:block; opacity:.92; }
+  .footer-inner p{ font-size:13px; color:var(--text-faint); }
+  .footer-links{ display:flex; gap:20px; }
+  .footer-links a{ font-size:13px; color:var(--text-dim); text-decoration:none; }
+  .footer-links a:hover{ color:var(--text); }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .cursor{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="#top" class="brand">
+      <span class="org">codercub</span><span class="sep">/</span><span class="repo">cs1</span>
+    </a>
+    <div class="navlinks">
+      <div class="nav-links-inner">
+        <a href="#pipeline">Замнал</a>
+        <a href="#curriculum">Агуулга</a>
+        <a href="#schedule">Хуваарь</a>
+        <a href="#pricing">Төлбөр</a>
+      </div>
+      <a class="nav-cta" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener">$ бүртгүүлэх</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">2018 оноос хойш · Монголын анхны coding academy</div>
+        <h1>Монголоос <span class="accent">Carnegie Mellon</span> хүртэлх код.</h1>
+        <p class="sub">CS1 бол дунд сургуулиа төгсөхөөс өмнө CMU-ийн 4 албан ёсны кредит, дэлхийн хаана ч хүчинтэй transcript авах замын эхний, заавал дүүргэх шат.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener">Суудлаа баталгаажуулах →</a>
+          <a class="btn-ghost" href="#pipeline">Хэрхэн ажилладгийг үзэх ↓</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>8<span style="color:var(--text-faint)">-р жил</span></b><span>тасралтгүй ажиллаж буй</span></div>
+          <div class="stat"><b>53</b><span>CS1 төгссөн сурагч</span></div>
+          <div class="stat"><b>120<span style="color:var(--text-faint)">ц</span></b><span>нийт хичээллэх цаг</span></div>
+          <div class="stat"><b>4<span style="color:var(--text-faint)"> кредит</span></b><span>CMU-ийн албан ёсны</span></div>
+        </div>
+      </div>
+
+      <div class="term">
+        <div class="term-bar">
+          <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+          <span class="term-title">codercub — zsh</span>
+        </div>
+        <div class="term-body">
+          <div><span class="p">$</span> codercub --enroll <span class="k">CS1</span></div>
+          <div class="out">&gt; Элсэлтийн шаардлага шалгаж байна...</div>
+          <div class="out">&gt; 7-12-р анги ................. <span class="ok">OK</span></div>
+          <div class="out">&gt; Эрдмийн хоцрогдол ............ <span class="ok">байхгүй</span></div>
+          <div style="margin-top:10px;">&gt; Хөтөлбөр: <span class="k">12 unit</span> / <span class="k">120 цаг</span> / <span class="k">30 долоо хоног</span></div>
+          <div>&gt; Дараагийн шат: <span class="k">CPCS → CMU 4 кредит</span></div>
+          <div style="margin-top:10px;" class="ok">&gt; STATUS: 2026-27 оны элсэлт нээлттэй<span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="wrap trust-inner">
+      <div class="trust-item"><span class="dot"></span><span><strong>Carnegie Mellon-ийн</strong> цогц хөтөлбөрийг 2022 оноос хэрэгжүүлж буй Монголын цорын ганц академи</span></div>
+      <div class="trust-item"><span class="dot"></span><span>CMU-ийн багш <strong>Tim Barnes</strong> 2025 онд Монголд ирж шууд заасан</span></div>
+      <div class="trust-item"><span class="dot"></span><span>2025-26 онд анхны сурагч <strong>8-р ангидаа</strong> 4 CMU кредит авсан</span></div>
+    </div>
+  </section>
+
+  <!-- PROOF PHOTO -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="proof-frame reveal">
+        <div class="proof-bar">
+          <span class="file">graduation_2025-26.jpg</span>
+          <span class="tag">// 53/53 дүүргэсэн</span>
+        </div>
+        <div class="proof-img-wrap">
+          <picture>
+            <source srcset="assets/images/cs1-graduation.webp" type="image/webp">
+            <img src="assets/images/cs1-graduation.jpg" alt="CS1 хөтөлбөрийг амжилттай дүүргэсэн сурагчид гэрчилгээгээ барин зурагт буусан нь" loading="lazy" width="2200" height="1467">
+          </picture>
+        </div>
+        <div class="proof-caption">
+          <p>Энэ бол хэн нэгний амлалт биш — гэрчилгээгээ барьж буй бодит 53 сурагч. Дараагийн зураг дээр өөрийн хүүхэд байх болов уу?</p>
+          <span class="count">53 сурагч ✓ дүүргэсэн</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section id="pipeline">
+    <div class="wrap">
+      <div class="eyebrow reveal">Замнал // CS1 → CPCS → CMU CREDIT</div>
+      <h2 class="reveal">Энэ бол нэг удаагийн курс биш — замнал.</h2>
+      <p class="lede reveal">CS1 нь өөрөө зогсдоггүй. Энэ бол Carnegie Mellon-ийн CPCS хөтөлбөрт орох албан ёсны prerequisite — өөрөөр хэлбэл дараагийн шатны түлхүүр.</p>
+
+      <div class="pipe-track">
+        <div class="pipe-line"></div>
+
+        <div class="stage active reveal">
+          <div class="stage-head">
+            <span class="stage-num">1</span>
+            <span class="stage-status open">Элсэлт нээлттэй</span>
+          </div>
+          <h3>CS1 хөтөлбөр</h3>
+          <p>7-12-р ангийн сурагчдад зориулсан суурь хөтөлбөр. Codercub-ийн Золбаяр багш заана.</p>
+          <div class="meta"><span><b>12</b> unit</span><span><b>120</b> цаг</span><span><b>30</b> долоо хоног</span></div>
+        </div>
+
+        <div class="stage reveal">
+          <div class="stage-head">
+            <span class="stage-num">2</span>
+            <span class="stage-status locked">CS1 шаардлагатай</span>
+          </div>
+          <h3>CPCS хөтөлбөр</h3>
+          <p>Carnegie Mellon-ийн цогц, advanced түвшний хөтөлбөр. Дунд сургуульдаа сурч байхдаа хамрагдана.</p>
+          <div class="meta"><span>CMU жилийн төлбөр: <b>$65,636</b></span></div>
+        </div>
+
+        <div class="stage reveal">
+          <div class="stage-head">
+            <span class="stage-num">3</span>
+            <span class="stage-status gold">Эцсийн үр дүн</span>
+          </div>
+          <h3>Албан ёсны CMU транскрипт</h3>
+          <p>Дэлхийн ТОП компьютерын ухааны сургуулийн 4 кредит, өөрийн нэр дээрх official transcript.</p>
+          <div class="meta"><span>Анхны хүлээн авсан: <b>2025-26, 8-р анги</b></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section id="curriculum">
+    <div class="wrap">
+      <div class="eyebrow reveal">Хөтөлбөрийн агуулга</div>
+      <h2 class="reveal">120 цаг. 12 unit. Нэг зорилго.</h2>
+      <p class="lede reveal">Хичээлийнхээ хажуугаар суралцах тул тодорхой хуваарь гарган, түүнийгээ мөрдөх (dedication) шаардлагатай. Бид бие даан суралцах арга барилаар чиглүүлж хамтарч ажиллана.</p>
+
+      <div class="curr-grid">
+        <ul class="fact-list reveal">
+          <li><b>ХЭН</b><span>Эрдмийн ерөнхий хоцрогдолгүй 7-12-р ангийн сурагч</span></li>
+          <li><b>ХЭДЭН</b><span>12 unit, нийт 120 цагийн хичээлээс бүрдэнэ</span></li>
+          <li><b>ХЭЗЭЭ</b><span>30 долоо хоног — 1-р семестер 6 unit, 2-р семестер 6 unit</span></li>
+          <li><b>ХЭРХЭН</b><span>Hybrid: онлайн лекц + танхимын office hours</span></li>
+          <li><b>ДАРАА НЬ</b><span>Амжилттай дүүргэвэл CPCS хөтөлбөрт элсэх эрхтэй болно</span></li>
+        </ul>
+
+        <div class="reveal">
+          <div class="req-box">
+            <div class="eyebrow" style="margin-bottom:6px;">Багшийн туршлага</div>
+            <p>Золбаяр багш 2022-23 онд танхимаар, дараа нь hybrid форматаар зааж, нийт <strong style="color:var(--text)">53 сурагч</strong> хөтөлбөрийг амжилттай дүүргэсэн.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="wrap">
+      <div class="eyebrow reveal">Хуваарь ба логистик</div>
+      <h2 class="reveal">Долоо хоногт 4 цаг. Тогтмол.</h2>
+      <p class="lede reveal">Ажлын өдрүүдийн түгжрэл, өвлийн харанхуйд бөөрөнхий болохгүйн тулд онлайн — чанараараа танхимаас ялгаагүй, багш real-time хянана.</p>
+
+      <div class="sched-grid">
+        <div class="sched-card reveal">
+          <div class="sched-head"><span>weekly.schedule</span><span>4ц / 7хоног</span></div>
+          <div class="sched-body">
+            <div class="sched-row"><span class="d">Мягмар</span><span class="t">19:00–20:00 · Онлайн лекц</span></div>
+            <div class="sched-row"><span class="d">Пүрэв</span><span class="t">19:00–20:00 · Онлайн лекц</span></div>
+            <div class="sched-row"><span class="d">Ням (хотод)</span><span class="t">16:00–18:00 · Танхим, Office Hours</span></div>
+            <div class="sched-row"><span class="d">Ням (орон нутагт)</span><span class="t">19:00–21:00 · Танхим, Office Hours</span></div>
+          </div>
+        </div>
+
+        <div class="sched-card reveal">
+          <div class="sched-head"><span>winter.break</span><span>4 долоо хоног</span></div>
+          <div class="sched-body">
+            <div class="sched-row"><span class="d">Долоо хоногт 1 удаа</span><span class="t">1ц үнэгүй давтлага</span></div>
+            <p style="font-size:13.5px; color:var(--text-dim); margin-top:12px;">Дутуу ойлгосон сэдвээ ганцаарчлан тайлбарлуулах, 1-р семестрийг 100% дуусгасан бол нэмэлт бодлого авах, эсвэл төслийнхөө зөвлөгөө авах боломжтой.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-date">09.13, 14:00</div>
+          <div class="tl-title">Kick-off Meeting</div>
+          <div class="tl-desc">Академи дээр танилцах уулзалт</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">09.15 – 12.27</div>
+          <div class="tl-title">1-р семестр (15 долоо хоног)</div>
+          <div class="tl-desc">Эхний 6 unit</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">4 долоо хоног</div>
+          <div class="tl-title">Өвлийн амралт</div>
+          <div class="tl-desc">Долоо хоногт 1 удаагийн үнэгүй давтлагатай</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">15 долоо хоног</div>
+          <div class="tl-title">2-р семестр</div>
+          <div class="tl-desc">Үлдсэн 6 unit</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">05.09, 14:00</div>
+          <div class="tl-title">Төгсөлтийн эвент</div>
+          <div class="tl-desc">Академи дээр</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="eyebrow reveal">Төлбөр</div>
+      <h2 class="reveal">Хөнгөлөлтүүд давхардан хамаарна.</h2>
+      <p class="lede reveal">Эрт төлбөл, дүү эгч/ах хамт сурвал, эсвэл өмнө нь CS0 суусан бол — та хямдхан суралцах боломжтой.</p>
+
+      <div class="price-base reveal">
+        <span class="label">Хөтөлбөрийн нийт үндсэн төлбөр (жилдээ)</span>
+        <span class="amt">₮2,900,000</span>
+      </div>
+
+      <div class="price-grid">
+        <div class="price-card highlight reveal">
+          <span class="price-tag">Хөнгөлөлт · Early Bird</span>
+          <span class="price-name">Эрт бүртгүүлэгч</span>
+          <span class="price-amount">
+            <span class="strike">₮2,900,000</span>
+            ₮2,610,000
+          </span>
+          <p class="price-desc">9 сарын 1-ний дотор жилийн төлбөрөө 100% төлвөл 10% хөнгөлнө.</p>
+        </div>
+
+        <div class="price-card reveal">
+          <span class="price-tag">Хөнгөлөлт · Alumni</span>
+          <span class="price-name">CS0 төгссөн сурагч</span>
+          <span class="price-amount">−₮100,000</span>
+          <p class="price-desc">Codercub-ийн CS0 хөтөлбөрт өмнө нь суусан бол нийт төлбөрөөс шууд хасагдана.</p>
+        </div>
+
+        <div class="price-card reveal">
+          <span class="price-tag">Хөнгөлөлт · Family</span>
+          <span class="price-name">Гэр бүлийн 2 хүүхэд</span>
+          <span class="price-amount">−10%</span>
+          <p class="price-desc">Нэг айлын 2 хүүхэд хамт сурвал нийт төлбөрөөс 10% хөнгөлнө.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;"><span></span>2026-27 оны бүртгэл</div>
+      <h2>Дараагийн шатандаа орох цаг боллоо.</h2>
+      <p class="lede">Суудлын тоо хязгаарлагдмал. Формыг бөглөж, суудлаа баталгаажуулаарай.</p>
+      <a class="btn-primary" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener" style="font-size:15px; padding:16px 28px;">Бүртгүүлэх форм →</a>
+      <div class="cta-form-hint">forms.gle/nxm1Ze3whkKgHfVo7</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/images/codercub-logo.png" alt="Codercub" loading="lazy">
+      <p>Кодчин бамбар — Advancing computer science in Mongolia. 2018 оноос хойш.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.facebook.com/codercub" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener">Бүртгүүлэх</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
