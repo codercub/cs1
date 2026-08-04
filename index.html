@@ -399,6 +399,37 @@
     body{ padding-bottom:64px; }
   }
 
+  /* ---------- FAQ ---------- */
+  .faq-list{ display:flex; flex-direction:column; gap:10px; max-width:760px; }
+  .faq-item{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:20px 22px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-weight:600; font-size:15px; color:var(--text);
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary .plus{
+    font-family:var(--mono); color:var(--amber); font-size:18px; flex:none;
+    transition:transform .2s ease;
+  }
+  .faq-item[open] summary .plus{ transform:rotate(45deg); }
+  .faq-item .faq-a{
+    padding:0 22px 20px; font-size:14px; color:var(--text-dim); line-height:1.6;
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown{
+    display:flex; align-items:center; gap:10px; margin-top:14px;
+    font-family:var(--mono); font-size:13px; color:var(--amber);
+  }
+  .countdown .cd-box{
+    background:var(--amber-dim); border:1px solid var(--amber); border-radius:var(--radius);
+    padding:4px 10px; font-weight:700; color:var(--amber);
+  }
+
   /* ---------- SCHEDULE ---------- */
   .sched-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:56px; }
   @media (max-width:720px){ .sched-grid{ grid-template-columns:1fr; } }
@@ -505,6 +536,7 @@
         <a href="#curriculum">Агуулга</a>
         <a href="#schedule">Хуваарь</a>
         <a href="#pricing">Төлбөр</a>
+        <a href="#faq">Асуулт</a>
       </div>
       <a class="nav-cta" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener">Бүртгүүлэх →</a>
       <button class="nav-toggle" id="navToggle" aria-label="Цэс" aria-expanded="false">
@@ -758,6 +790,7 @@
             ₮2,610,000
           </span>
           <p class="price-desc">9 сарын 1-ний дотор жилийн төлбөрөө 100% төлвөл 10% хөнгөлнө.</p>
+          <div class="countdown" id="earlyBirdCountdown"><span class="cd-box">—</span> <span>Early Bird хугацаанд</span></div>
         </div>
 
         <div class="price-card reveal">
@@ -777,6 +810,57 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="eyebrow reveal">Асуулт хариулт</div>
+      <h2 class="reveal">Түгээмэл асуултууд.</h2>
+      <p class="lede reveal">Шийдвэр гаргахын өмнө мэдэх ёстой зүйлс.</p>
+
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Урьдчилсан кодчлолын мэдлэг шаардлагатай юу?<span class="plus">+</span></summary>
+          <div class="faq-a">Үгүй. CS1 бол суурь хөтөлбөр тул кодчлолын өмнөх мэдлэг шаардахгүй — ground-up аргачлалаар анхнаасаа зааж эхэлнэ. Гагцхүү англи хэл уншиж ойлгох, дунд шатны математикийн мэдлэгтэй байх шаардлагатай.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Хичээлээ алдвал яах вэ?<span class="plus">+</span></summary>
+          <div class="faq-a">Онлайн лекц бүрийг бичлэг хийж, сурагч бүрт дараа нь үзэх боломжийг олгоно. Дутуу ойлгосон сэдвээ Ням гарагийн office hours дээр Золбаяр багшаас биечлэн, ганцаарчлан тайлбарлуулах боломжтой.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Төлбөрөө хэсэгчлэн төлж болох уу?<span class="plus">+</span></summary>
+          <div class="faq-a">Тийм ээ, семестр тутамд хувааж төлөх боломжтой. Жилийн нийт төлбөрөө нэг удаад 100% төлвөл Early Bird 10% хөнгөлөлт эдэлнэ. Төлбөрийн нөхцөлийн талаар дэлгэрэнгүйг бүртгүүлэх үедээ тодруулна.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Сурахаа больвол төлбөрөө буцаах боломжтой юу?<span class="plus">+</span></summary>
+          <div class="faq-a">Хувийн шалтгаанаар суралцахаа больсон тохиолдол тухайн нөхцөл байдлаас хамаарч тус тусад нь харагдана. Дэлгэрэнгүй нөхцөлийг бидэнтэй холбогдож лавлаарай.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Ямар төхөөрөмж, программ хэрэгтэй вэ?<span class="plus">+</span></summary>
+          <div class="faq-a">Тогтвортой интернэттэй компьютер (Windows эсвэл Mac) хангалттай. Тусгай программ хангамж урьдчилж суулгах шаардлагагүй — хичээлийн явцад шаардлагатай хэрэглүүрийг зааж, хамт суулгана.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Хичээл ямар хэлээр явагдах вэ?<span class="plus">+</span></summary>
+          <div class="faq-a">Лекц монгол хэл дээр явагдана. Код бичих, техникийн нэр томьёог англи хэлээр зааж сургана — учир нь CPCS болон цаашдын шатанд англи хэлний бэлэн байдал шаардлагатай болно.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Бүлэг тус бүрт хэдэн сурагч байдаг вэ?<span class="plus">+</span></summary>
+          <div class="faq-a">Багш сурагч бүртэй нягт харилцаж ажиллах боломжтой байхаар бүлгийн хэмжээг багтаамжтай байлгадаг. Тухайн жилийн бүлгийн бүрэн бүрдэлийг бүртгэлийн явцад тодруулна.</div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>7-12-р ангиас өөр байвал яах вэ?<span class="plus">+</span></summary>
+          <div class="faq-a">Хөтөлбөр 7-12-р ангийн сурагчдад зориулагдсан. Хилийн ангид (жишээ нь 6 эсвэл онцгой бэлтгэлтэй сурагч) байгаа бол бидэнтэй холбогдож тухайн сурагчийн бэлэн байдлыг хамтдаа үнэлье.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <div class="wrap">
@@ -785,6 +869,7 @@
       <p class="lede">Суудлын тоо хязгаарлагдмал. Формыг бөглөж, суудлаа баталгаажуулаарай.</p>
       <a class="btn-primary" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener" style="font-size:15px; padding:16px 28px;">Бүртгүүлэх форм →</a>
       <div class="cta-form-hint">forms.gle/nxm1Ze3whkKgHfVo7</div>
+      <div class="countdown" id="ctaCountdown" style="justify-content:center; margin-top:22px;"><span class="cd-box">—</span> <span>Early Bird хугацаа дуусахад</span></div>
     </div>
   </section>
 
@@ -809,6 +894,25 @@
 </div>
 
 <script>
+  (function(){
+    const deadline = new Date('2026-09-01T00:00:00+08:00'); // Ulaanbaatar time
+    function renderCountdown(){
+      const now = new Date();
+      const diffMs = deadline - now;
+      const boxes = document.querySelectorAll('#earlyBirdCountdown .cd-box, #ctaCountdown .cd-box');
+      if(diffMs <= 0){
+        boxes.forEach(b => b.textContent = 'дууссан');
+        return;
+      }
+      const days = Math.floor(diffMs / (1000*60*60*24));
+      const hours = Math.floor((diffMs % (1000*60*60*24)) / (1000*60*60));
+      const label = days > 0 ? `${days} өдөр ${hours} цаг` : `${hours} цаг`;
+      boxes.forEach(b => b.textContent = label);
+    }
+    renderCountdown();
+    setInterval(renderCountdown, 60000);
+  })();
+
   const navToggle = document.getElementById('navToggle');
   const navlinks = document.getElementById('navlinks');
   navToggle.addEventListener('click', () => {
