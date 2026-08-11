@@ -10,6 +10,19 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 <meta name="description" content="Монголын анхны coding academy Codercub-ийн CS1 хөтөлбөр — Carnegie Mellon-ийн CPCS хөтөлбөр рүү орох эхний шат. 12 unit, 120 цаг, 7-12-р ангийн сурагчдад.">
 
+<meta property="og:type" content="website">
+<meta property="og:title" content="CS1 хөтөлбөр — Codercub × Carnegie Mellon University">
+<meta property="og:description" content="Монголын анхны coding academy Codercub-ийн CS1 хөтөлбөр — Carnegie Mellon-ийн CPCS хөтөлбөр рүү орох эхний шат. 12 unit, 120 цаг, 7-12-р ангийн сурагчдад.">
+<meta property="og:image" content="https://codercub.github.io/cs1/assets/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://codercub.github.io/cs1/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CS1 хөтөлбөр — Codercub × Carnegie Mellon University">
+<meta name="twitter:description" content="Монголын анхны coding academy Codercub-ийн CS1 хөтөлбөр — Carnegie Mellon-ийн CPCS хөтөлбөр рүү орох эхний шат.">
+<meta name="twitter:image" content="https://codercub.github.io/cs1/assets/images/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -354,6 +367,20 @@
   .req-box .eyebrow{ margin-bottom:8px; }
   .req-box p{ font-size:14px; color:var(--text-dim); }
 
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{ border-bottom:1px solid var(--line); }
+  .test-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px; }
+  @media (max-width:720px){ .test-grid{ grid-template-columns:1fr; } }
+  .test-card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 26px 22px;
+  }
+  .test-quote-mark{ font-family:var(--mono); font-size:32px; color:var(--amber); line-height:1; margin-bottom:8px; display:block; }
+  .test-card p{ font-size:14.5px; color:var(--text-dim); line-height:1.65; margin-bottom:18px; }
+  .test-attr{ display:flex; flex-direction:column; gap:2px; border-top:1px solid var(--line); padding-top:14px; }
+  .test-attr b{ font-size:14px; color:var(--text); }
+  .test-attr span{ font-family:var(--mono); font-size:12px; color:var(--text-faint); }
+
   /* ---------- TEACHER ---------- */
   .teacher-card{
     display:grid; grid-template-columns:auto 1fr; gap:32px;
@@ -619,6 +646,53 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="eyebrow reveal">Эцэг эх, сурагчдын үг</div>
+      <h2 class="reveal">Тэдний туршлагаас сонсоцгооё.</h2>
+      <p class="lede reveal">Хөтөлбөрийг өнгөрсөн жил дүүргэсэн сурагч, эцэг эхчүүдийн бодит сэтгэгдэл.</p>
+
+      <div class="test-grid">
+        <div class="test-card reveal">
+          <span class="test-quote-mark">“</span>
+          <p>Зуны сүүлийн сургалтанд суугаад дууслаа. Codercub-т суугаад coding дөнгөж эхэлж байгаа миний хувьд үр дүнтэй 3 долоо хоног өнгөрлөө. Хичээлүүд ойлгомжтой, заавар сайн байсан. Англи хэл дээр явагдсан нь бүр их давуу тал, үр өгөөжтэй юм байна лээ. Багшдаа баярлалаа.</p>
+          <div class="test-attr">
+            <b>Ринчиндулам</b>
+            <span>50-р сургуулийн сурагч</span>
+          </div>
+        </div>
+
+        <div class="test-card reveal">
+          <span class="test-quote-mark">“</span>
+          <p>Codercub-ийн хичээл нь Америкийн Carnegie Mellon их сургуулийн боловсруулсан хөтөлбөрөөр орж байгаа болохоор шат шатны сургалтад хамрагдаад дараа нь тэр сургуульдаа шалгалт өгөөд [X] кредит тооцуулах боломжтой гэсэн. Багш нь англиар хичээлээ заадаг нь хүүхэд давхар англи хэлний сонсох хичээлд сууж байгаа л гэсэн үг.</p>
+          <div class="test-attr">
+            <b>Энэбиш</b>
+            <span>Анарын аав</span>
+          </div>
+        </div>
+
+        <div class="test-card reveal">
+          <span class="test-quote-mark">“</span>
+          <p>Энэ их сайн багштай, сайн сургалттай газар шүү. Манай хүү бараг бүх шатны сургалтанд суугаад их баяртай байгаа. Хоёр дахь вебсайтаа хийгээд дуусч байна. Хичээл нь дандаа сонирхолтой байсан гэж ирдэг. Амжилт хүсье.</p>
+          <div class="test-attr">
+            <b>Цолмон</b>
+            <span>Оргилын ээж</span>
+          </div>
+        </div>
+
+        <div class="test-card reveal">
+          <span class="test-quote-mark">“</span>
+          <p>Codercub-ийн Золбоо багшийн сургалтанд хүүгээ явуулаад, үр дүнд нь үнэхээр сэтгэл хангалуун байгаа хүү бид хоёр. Сургалт маш идэвх зүтгэлтэй, ажил хэрэгч болж өнгөрсөн. Америк чанар гэж л түүнийг хэлдэг байх. Codercub-ийн дараа дараагийн үйл ажиллагаанд идэвхтэй оролцох хүсэлтэй байгаа шүү.</p>
+          <div class="test-attr">
+            <b>Охинтэнгэр</b>
+            <span>Анхбаярын ээж</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PIPELINE -->
   <section id="pipeline">
     <div class="wrap">
@@ -774,7 +848,7 @@
   <section id="pricing">
     <div class="wrap">
       <div class="eyebrow reveal">Төлбөр</div>
-      <h2 class="reveal">Хөнгөлөлтүүд давхардан хамаарна.</h2>
+      <h2 class="reveal">Хөнгөлөлт эдлэх боломжууд.</h2>
       <p class="lede reveal">Эрт төлбөл, дүү эгч/ах хамт сурвал, эсвэл өмнө нь CS0 суусан бол — та хямдхан суралцах боломжтой.</p>
 
       <div class="price-base reveal">
@@ -836,7 +910,7 @@
 
         <details class="faq-item reveal">
           <summary>Яагаад график дээр суурилсан курс вэ?<span class="plus">+</span></summary>
-          <div class="faq-a">График хөгжилтэй бөгөөд сурагчдад программчлалын бүтээлч талыг мэдрүүлж, өөрийн бичсэн кодын алдааг (bug) шууд нүдээр харж ойлгоход тусалдаг — энэ нь дибаг хийх чадварыг мэдэгдэхүйц хурдасгадаг.</div>
+          <div class="faq-a">График хөгжилтэй бөгөөд сурагчдад программчлалын бүтээлч талыг мэдрүүлж, өөрийн бичсэн кодын алдааг (bug) шууд нүдээр харж ойлгоход тусалдаг — энэ нь debug хийх чадварыг мэдэгдэхүйц хурдасгадаг.</div>
         </details>
 
         <details class="faq-item reveal">
@@ -851,7 +925,7 @@
 
         <details class="faq-item reveal">
           <summary>7-12-р ангиас өөр байвал яах вэ?<span class="plus">+</span></summary>
-          <div class="faq-a">Хөтөлбөр 7-12-р ангийн сурагчдад зориулагдсан. Хилийн ангид (жишээ нь 6 эсвэл онцгой бэлтгэлтэй сурагч) байгаа бол бидэнтэй холбогдож тухайн сурагчийн бэлэн байдлыг хамтдаа үнэлье.</div>
+          <div class="faq-a">Хөтөлбөр 7-12-р ангийн сурагчдад зориулагдсан. Хэрвээ онцгой бэлтгэлтэй сурагч байгаа бол бидэнтэй холбогдсоноор бид хүүхдийнх нь түвшинг тогтоох боломжтой.</div>
         </details>
 
         <details class="faq-item reveal">
@@ -882,7 +956,7 @@
     <div class="wrap">
       <div class="eyebrow" style="justify-content:center;"><span></span>2026-27 оны бүртгэл</div>
       <h2>Дараагийн шатандаа орох цаг боллоо.</h2>
-      <p class="lede">Суудлын тоо хязгаарлагдмал. Формыг бөглөж, суудлаа баталгаажуулаарай.</p>
+      <p class="lede">Суудлын тоо хязгаартай. Формоо бөглөж, суудлаа баталгаажуулаарай!</p>
       <a class="btn-primary" href="https://forms.gle/nxm1Ze3whkKgHfVo7" target="_blank" rel="noopener" style="font-size:15px; padding:16px 28px;">Бүртгүүлэх форм →</a>
       <div class="cta-form-hint">forms.gle/nxm1Ze3whkKgHfVo7</div>
       <div class="countdown" id="ctaCountdown" style="justify-content:center; margin-top:22px;"><span class="cd-box">—</span> <span>Early Bird хугацаа дуусахад</span></div>
