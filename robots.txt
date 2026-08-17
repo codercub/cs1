@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codercub.github.io/cs1/sitemap.xml
