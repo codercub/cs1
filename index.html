@@ -455,7 +455,6 @@
   .stage .meta b{ color:var(--text); }
 
   /* ---------- TESTIMONIALS ---------- */
-  .testimonials{ border-bottom:1px solid var(--line); }
   .test-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px; }
   @media (max-width:720px){ .test-grid{ grid-template-columns:1fr; } }
   .test-card{
@@ -647,9 +646,9 @@
     </a>
     <div class="navlinks" id="navlinks">
       <div class="nav-links-inner">
-        <a href="#pipeline">Замнал</a>
         <a href="#teacher">Багш</a>
-        <a href="#curriculum">Агуулга ба хуваарь</a>
+        <a href="#pipeline">Замнал</a>
+        <a href="#curriculum">Хуваарь</a>
         <a href="#pricing">Төлбөр</a>
         <a href="#faq">Асуулт</a>
       </div>
@@ -728,7 +727,7 @@
     </div>
   </section>
 
-  <!-- PROOF PHOTO -->
+  <!-- PROOF PHOTO + TESTIMONIALS -->
   <section class="proof">
     <div class="wrap">
       <div class="proof-frame reveal">
@@ -747,17 +746,8 @@
           <span class="count">53 сурагч ✓ дүүргэсэн</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="wrap">
-      <div class="eyebrow reveal">Эцэг эх, сурагчдын үг</div>
-      <h2 class="reveal">Тэдний сэтгэгдэл.</h2>
-      <p class="lede reveal">Codercub-ын сурагч, эцэг эхчүүдийн сэтгэгдлүүдээс...</p>
-
-      <div class="test-grid">
+      <div class="test-grid" style="margin-top:36px;">
         <div class="test-card reveal">
           <span class="test-quote-mark">“</span>
           <p>Зуны сүүлийн сургалтанд суугаад дууслаа. Codercub-т суугаад coding дөнгөж эхэлж байгаа миний хувьд үр дүнтэй 3 долоо хоног өнгөрлөө. Хичээлүүд ойлгомжтой, заавар сайн байсан. Англи хэл дээр явагдсан нь бүр их давуу тал, үр өгөөжтэй юм байна лээ. Багшдаа баярлалаа.</p>
@@ -792,6 +782,32 @@
             <b>Охинтэнгэр</b>
             <span>Анхбаярын ээж</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <!-- TEACHER -->
+  <section id="teacher">
+    <div class="wrap">
+      <div class="eyebrow reveal">Хэн заах вэ</div>
+      <h2 class="reveal">Үндэслэгчээс — биечлэн.</h2>
+      <p class="lede reveal">Хөтөлбөрийг Codercub-ын үүсгэн байгуулагч өөрөө заана.</p>
+
+      <div class="teacher-card reveal">
+        <div class="teacher-avatar"><img src="assets/images/zolbayar.jpg" alt="Магсарын Золбаяр" loading="lazy" width="300" height="300"></div>
+        <div>
+          <div class="teacher-name">Магсарын Золбаяр</div>
+          <div class="teacher-role">Founder &amp; Lead Instructor, Codercub</div>
+          <p class="teacher-bio">Fulbright тэтгэлэгээр АНУ-ын Missouri-ийн их сургуульд компьютерын ухааны магистрын зэрэг хамгаалж, 2018 онд Монголд эргэн ирээд Codercub-ыг үндэслэсэн. Тэр цагаас хойш 1200 гаруй хүүхдэд код зааж, Code.org-ийн Монгол дахь албан ёсны түнш болсон.</p>
+          <ul class="cred-list">
+            <li><b>2014–2016</b><span>Fulbright Foreign Student, АНУ</span></li>
+            <li><b>MS Computer Science</b><span>University of Missouri–Columbia</span></li>
+            <li><b>2018</b><span>Codercub-ийг үндэслэн, Монголын анхны хүүхдийн coding academy болгосон</span></li>
+            <li><b>2022 оноос</b><span>Carnegie Mellon-ийн цогц хөтөлбөрийг Монголд албан ёсоор хэрэгжүүлж буй багш</span></li>
+            <li><b>5 сурагч</b><span>нь Carnegie Mellon-ийн их сургуулиас АНУ-д зохион байгуулдаг ОУ-ын бүтээлч төслийн уралдаанд байр эзэлсэн</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -840,35 +856,10 @@
     </div>
   </section>
 
-  <!-- TEACHER -->
-  <section id="teacher">
-    <div class="wrap">
-      <div class="eyebrow reveal">Хэн заах вэ</div>
-      <h2 class="reveal">Үндэслэгчээс — биечлэн.</h2>
-      <p class="lede reveal">Хөтөлбөрийг Codercub-ын үүсгэн байгуулагч өөрөө заана.</p>
-
-      <div class="teacher-card reveal">
-        <div class="teacher-avatar"><img src="assets/images/zolbayar.jpg" alt="Магсарын Золбаяр" loading="lazy" width="300" height="300"></div>
-        <div>
-          <div class="teacher-name">Магсарын Золбаяр</div>
-          <div class="teacher-role">Founder &amp; Lead Instructor, Codercub</div>
-          <p class="teacher-bio">Fulbright тэтгэлэгээр АНУ-ын Missouri-ийн их сургуульд компьютерын ухааны магистрын зэрэг хамгаалж, 2018 онд Монголд эргэн ирээд Codercub-ыг үндэслэсэн. Тэр цагаас хойш 1200 гаруй хүүхдэд код зааж, Code.org-ийн Монгол дахь албан ёсны түнш болсон.</p>
-          <ul class="cred-list">
-            <li><b>2014–2016</b><span>Fulbright Foreign Student, АНУ</span></li>
-            <li><b>MS Computer Science</b><span>University of Missouri–Columbia</span></li>
-            <li><b>2018</b><span>Codercub-ийг үндэслэн, Монголын анхны хүүхдийн coding academy болгосон</span></li>
-            <li><b>2022 оноос</b><span>Carnegie Mellon-ийн цогц хөтөлбөрийг Монголд албан ёсоор хэрэгжүүлж буй багш</span></li>
-            <li><b>5 сурагч</b><span>нь Carnegie Mellon-ийн их сургуулиас АНУ-д зохион байгуулдаг ОУ-ын бүтээлч төслийн уралдаанд байр эзэлсэн</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CURRICULUM + SCHEDULE -->
   <section id="curriculum">
     <div class="wrap">
-      <div class="eyebrow reveal">Агуулга ба хуваарь</div>
+      <div class="eyebrow reveal">Хуваарь</div>
       <h2 class="reveal">12 unit. Долоо хоногт 4 цаг.</h2>
       <p class="lede reveal">Ажлын өдрүүдийн түгжрэл, өвлийн харанхуйгаас үл хамааран онлайнаар хичээллэх боломж — чанараараа танхимаас ялгаагүй, багш real-time хянана. Суралцагч өөрөө хуваарь гарган, түүнийгээ мөрдөх (dedication) шаардлагатай.</p>
 
